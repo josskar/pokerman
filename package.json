@@ -1,0 +1,19 @@
+{
+  "name": "pokerman",
+  "version": "1.0.0",
+  "description": "This is a simple poker game made using javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josskar/pokerman.git"
+  },
+  "author": "Josue Chavez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josskar/pokerman/issues"
+  },
+  "homepage": "https://github.com/josskar/pokerman"
+}
