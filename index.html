@@ -10,24 +10,36 @@
 
 <body>
     <form>
-        <div><label>Small blind<input type="text" id="smallBlind" /></label></div>
-        <div><label>Big blind<input type="text" id="bigBlind" /></label></div>
-        <div><label>Player dealer<input type="text" id="playerDealer" /></label></div>
-        <div><label>Room name<input type="text" id="roomName" /></label></div>
-        <div><label>Time Out Hand<input type="text" id="timeOutHand" /></label></div>
-        <div><label>Players<input type="text" id="players" /></label></div>
+        <div><label>Small blind <input type="text" id="smallBlind" /><span id="smallBlindInfo"></span></label></div>
+        <div><label>Big blind <input type="text" id="bigBlind" /><span id="bigBlindInfo"></span></label></div>
+        <div><label>Player dealer <input type="text" id="playerDealer" /><span id="playerDealerInfo"></span></label></div>
+        <div><label>Room name <input type="text" id="roomName" /><span id="roomNameInfo"></span></label></div>
+        <div><label>Time Out Hand <input type="text" id="timeOutHand" /><span id="timeOutHandInfo"></span></label></div>
+        
+        <div id="players">
+            <div>Player 1: Name: <input type="text" id="name1"/> Initial stack <input type="text" id="initialStack1"/></div>
+            <div>Player 2: Name: <input type="text" id="name2"/> Initial stack <input type="text" id="initialStack2"/></div>
+            <div>Player 3: Name: <input type="text" id="name3"/> Initial stack <input type="text" id="initialStack3"/></div>
+            <div>Player 4: Name: <input type="text" id="name4"/> Initial stack <input type="text" id="initialStack4"/></div>
+            <div>Player 5: Name: <input type="text" id="name5"/> Initial stack <input type="text" id="initialStack5"/></div>
+            <div>Player 6: Name: <input type="text" id="name6"/> Initial stack <input type="text" id="initialStack6"/></div>
+            <div>Player 7: Name: <input type="text" id="name7"/> Initial stack <input type="text" id="initialStack7"/></div>
+            <div>Player 8: Name: <input type="text" id="name8"/> Initial stack <input type="text" id="initialStack8"/></div>
+            <div>Player 9: Name: <input type="text" id="name9"/> Initial stack <input type="text" id="initialStack9"/></div>
+        </div>
+
         <button type="button" id="start">Start!</button>
 
         <div id="table" class="no-display">
-            <div id="player1">Player 1: Name: <input type="text" id="name1"/> Initial stack <input type="text" id="initialStack1"/></div>
-            <div id="player2">Player 2: Name: <input type="text" id="name2"/> Initial stack <input type="text" id="initialStack2"/></div>
-            <div id="player3">Player 3: Name: <input type="text" id="name3"/> Initial stack <input type="text" id="initialStack3"/></div>
-            <div id="player4">Player 4: Name: <input type="text" id="name4"/> Initial stack <input type="text" id="initialStack4"/></div>
-            <div id="player5">Player 5: Name: <input type="text" id="name5"/> Initial stack <input type="text" id="initialStack5"/></div>
-            <div id="player6">Player 6: Name: <input type="text" id="name6"/> Initial stack <input type="text" id="initialStack6"/></div>
-            <div id="player7">Player 7: Name: <input type="text" id="name7"/> Initial stack <input type="text" id="initialStack7"/></div>
-            <div id="player8">Player 8: Name: <input type="text" id="name8"/> Initial stack <input type="text" id="initialStack8"/></div>
-            <div id="player9">Player 9: Name: <input type="text" id="name9"/> Initial stack <input type="text" id="initialStack9"/></div>
+            <div id="player1"></div>
+            <div id="player2"></div>
+            <div id="player3"></div>
+            <div id="player4"></div>
+            <div id="player5"></div>
+            <div id="player6"></div>
+            <div id="player7"></div>
+            <div id="player8"></div>
+            <div id="player9"></div>
         </div>
     </form>
 </body>
