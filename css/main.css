@@ -26,3 +26,13 @@
 .card{
     width: 40px;
 }
+
+form label {
+  display: block;
+  height: 32px;
+  width: 320px;
+}
+
+form label input {
+  float: right;
+}

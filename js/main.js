@@ -21,6 +21,20 @@ function deleteCard(card){
     }
 }
 
+function onPlayerCountChange(e) {
+    var playerCount = $('#playerCount').val()
+        $players = $('#players'),
+        playerNames = ['Alfred', 'Bertha', 'Connor', 'Donkey', 'Edward', 'Franny', 'George', 'Homer', 'Irma', 'Joe', 'Karla'];
+
+    $players.html('');
+
+    for(var i=1; i <= playerCount; i++) {
+        var $newPlayer = $('<div>' + i + '. <input type="text" id="name' + i + '" value="' + playerNames[i] + '"/> Initial stack <input type="number" id="initialStack1" value="1000" min="500" max="10000"/></div>');
+
+        $players.append($newPlayer);
+    }
+}
+
 $( document ).ready(function() {
     var bigBlind, smallBlind, playerDealer, gameType, gameMode, roomName, timeOutHand;
     var players = [];
@@ -103,4 +117,7 @@ $( document ).ready(function() {
 
         console.log(cards);
     });
+
+    $('#playerCount').on('change', onPlayerCountChange);
+    onPlayerCountChange();
 });

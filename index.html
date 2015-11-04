@@ -10,12 +10,13 @@
 
 <body>
     <form>
-        <div><label>Small blind <input type="text" id="smallBlind" /><span id="smallBlindInfo"></span></label></div>
-        <div><label>Big blind <input type="text" id="bigBlind" /><span id="bigBlindInfo"></span></label></div>
-        <div><label>Player dealer <input type="text" id="playerDealer" /><span id="playerDealerInfo"></span></label></div>
-        <div><label>Room name <input type="text" id="roomName" /><span id="roomNameInfo"></span></label></div>
-        <div><label>Time Out Hand <input type="text" id="timeOutHand" /><span id="timeOutHandInfo"></span></label></div>
-        
+        <div><label>Small blind <input type="number" value="10" id="smallBlind" min="1" max="100"/><span id="smallBlindInfo"></span></label></div>
+        <div><label>Big blind <input type="number" value="20" id="bigBlind" min="2" max="200"/><span id="bigBlindInfo"></span></label></div>
+        <div><label>Player dealer <input type="number" value="1" id="playerDealer" min="1" max="10"/><span id="playerDealerInfo"></span></label></div>
+        <div><label>Room name <input type="text" value="New Room" id="roomName" /><span id="roomNameInfo"></span></label></div>
+        <div><label>Time Out Hand (secs) <input type="number" value="30" id="timeOutHand" min="1" max="600"/><span id="timeOutHandInfo"></span></label></div>
+        <div><label># Players <input type="number" value="9" id="playerCount" min="1" max="10"/><span id="playerCountInfo"></span></label></div>
+
         <div id="players">
             <div>Player 1: Name: <input type="text" id="name1"/> Initial stack <input type="text" id="initialStack1"/></div>
             <div>Player 2: Name: <input type="text" id="name2"/> Initial stack <input type="text" id="initialStack2"/></div>
