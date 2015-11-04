@@ -69,7 +69,7 @@ function onPlayerCountChange(e) {
     $players.html('');
 
     for(var i=1; i <= playerCount; i++) {
-        var $newPlayer = $('<div>' + i + '. <input type="text" id="name' + i + '" value="' + playerNames[i] + '"/> Initial stack <input type="number" id="initialStack1" value="1000" min="500" max="10000"/></div>');
+        var $newPlayer = $('<div>' + i + '. <input type="text" id="name' + i + '" value="' + playerNames[i] + '"/> Initial stack <input type="number" id="initialStack' + i + '" value="1000" min="500" max="10000"/></div>');
 
         $players.append($newPlayer);
     }
