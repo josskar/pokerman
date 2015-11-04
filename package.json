@@ -2,7 +2,7 @@
   "name": "pokerman",
   "version": "1.0.0",
   "description": "This is a simple poker game made using javascript.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
