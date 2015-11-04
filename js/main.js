@@ -3,6 +3,7 @@ $( document ).ready(function() {
     var players = [];
 
     $('#start').on("click", function(){
-       console.log('ready');
+        console.log('ready');
+        $('#table').removeClass("no-display");
     });
 });
