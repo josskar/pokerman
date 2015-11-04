@@ -1,3 +1,16 @@
 .no-display{
     display: none;
 }
+
+.player{
+    width: 100px;
+    display: inline-block;
+}
+
+.display-block{
+    display: block;
+}
+
+#btnActions{
+    width: 100px;
+}

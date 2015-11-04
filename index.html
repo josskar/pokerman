@@ -28,18 +28,27 @@
             <div>Player 9: Name: <input type="text" id="name9"/> Initial stack <input type="text" id="initialStack9"/></div>
         </div>
 
-        <button type="button" id="start">Start!</button>
+        <button type="button" id="sit">Sit!</button>
 
         <div id="table" class="no-display">
-            <div id="player1"></div>
-            <div id="player2"></div>
-            <div id="player3"></div>
-            <div id="player4"></div>
-            <div id="player5"></div>
-            <div id="player6"></div>
-            <div id="player7"></div>
-            <div id="player8"></div>
-            <div id="player9"></div>
+            <div id="player1" class="player"><div id="name1Info"></div><div id="initialStack1Info"></div></div>
+            <div id="player2" class="player"><div id="name2Info"></div><div id="initialStack2Info"></div></div>
+            <div id="player3" class="player"><div id="name3Info"></div><div id="initialStack3Info"></div></div>
+            <div id="player4" class="player"><div id="name4Info"></div><div id="initialStack4Info"></div></div>
+            <div id="player5" class="player"><div id="name5Info"></div><div id="initialStack5Info"></div></div>
+            <div id="player6" class="player"><div id="name6Info"></div><div id="initialStack6Info"></div></div>
+            <div id="player7" class="player"><div id="name7Info"></div><div id="initialStack7Info"></div></div>
+            <div id="player8" class="player"><div id="name8Info"></div><div id="initialStack8Info"></div></div>
+            <div id="player9" class="player"><div id="name9Info"></div><div id="initialStack9Info"></div></div>
+        </div>
+
+        <button type="button" class="no-display" id="start">Start Hand!</button>
+
+        <div id="btnActions" class="no-display">
+            <button type="button" class="display-block">Fold</button>
+            <button type="button" class="display-block">Call</button>
+            <button type="button" class="display-block">Raise</button>
+            <input type="text" id="raise"/>
         </div>
     </form>
 </body>
