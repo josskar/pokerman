@@ -46,56 +46,56 @@ $( document ).ready(function() {
         if($('#name1').val()!='' && $('#initialStack1').val()!=''){
             $('#name1Info').text($('#name1').val());
             $('#initialStack1Info').text($('#initialStack1').val());
-            $('#card11').text(getMeCard(cards));
-            $('#card12').text(getMeCard(cards));
+            $('#card11').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card12').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name2').val()!='' && $('#initialStack2').val()!=''){
             $('#name2Info').text($('#name2').val());
             $('#initialStack2Info').text($('#initialStack2').val());
-            $('#card21').text(getMeCard(cards));
-            $('#card22').text(getMeCard(cards));
+            $('#card21').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card22').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name3').val()!='' && $('#initialStack3').val()!=''){
             $('#name3Info').text($('#name3').val());
             $('#initialStack3Info').text($('#initialStack3').val());
-            $('#card31').text(getMeCard(cards));
-            $('#card32').text(getMeCard(cards));
+            $('#card31').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card32').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name4').val()!='' && $('#initialStack4').val()!=''){
             $('#name4Info').text($('#name4').val());
             $('#initialStack4Info').text($('#initialStack4').val());
-            $('#card41').text(getMeCard(cards));
-            $('#card42').text(getMeCard(cards));
+            $('#card41').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card42').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name5').val()!='' && $('#initialStack5').val()!=''){
             $('#name5Info').text($('#name5').val());
             $('#initialStack5Info').text($('#initialStack5').val());
-            $('#card51').text(getMeCard(cards));
-            $('#card52').text(getMeCard(cards));
+            $('#card51').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card52').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name6').val()!='' && $('#initialStack6').val()!=''){
             $('#name6Info').text($('#name6').val());
             $('#initialStack6Info').text($('#initialStack6').val());
-            $('#card61').text(getMeCard(cards));
-            $('#card62').text(getMeCard(cards));
+            $('#card61').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card62').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name7').val()!='' && $('#initialStack7').val()!=''){
             $('#name7Info').text($('#name7').val());
             $('#initialStack7Info').text($('#initialStack7').val());
-            $('#card71').text(getMeCard(cards));
-            $('#card72').text(getMeCard(cards));
+            $('#card71').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card72').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name8').val()!='' && $('#initialStack8').val()!=''){
             $('#name8Info').text($('#name8').val());
             $('#initialStack8Info').text($('#initialStack8').val());
-            $('#card81').text(getMeCard(cards));
-            $('#card82').text(getMeCard(cards));
+            $('#card81').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card82').attr('src', "images/" + getMeCard(cards) + ".png");
         }
         if($('#name9').val()!='' && $('#initialStack9').val()!=''){
             $('#name9Info').text($('#name9').val());
             $('#initialStack9Info').text($('#initialStack9').val());
-            $('#card91').text(getMeCard(cards));
-            $('#card92').text(getMeCard(cards));
+            $('#card91').attr('src', "images/" + getMeCard(cards) + ".png");
+            $('#card92').attr('src', "images/" + getMeCard(cards) + ".png");
         }
 
         $('#start').removeClass("no-display");

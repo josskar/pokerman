@@ -14,3 +14,15 @@
 #btnActions{
     width: 100px;
 }
+
+.playerName{
+    color:blue;
+}
+
+.playerStack{
+    color: red;
+}
+
+.card{
+    width: 40px;
+}
