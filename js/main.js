@@ -50,12 +50,14 @@ $( document ).ready(function() {
         $('#playerDealerInfo').text($('#playerDealer').val());
         $('#roomNameInfo').text($('#roomName').val());
         $('#timeOutHandInfo').text($('#timeOutHand').val());
+        $('#playerCountInfo').text($('#playerCount').val());
 
         $('#smallBlind').addClass('no-display');
         $('#bigBlind').addClass('no-display');
         $('#playerDealer').addClass('no-display');
         $('#roomName').addClass('no-display');
         $('#timeOutHand').addClass('no-display');
+        $('#playerCount').addClass('no-display');
 
         if($('#name1').val()!='' && $('#initialStack1').val()!=''){
             $('#name1Info').text($('#name1').val());
