@@ -18,11 +18,11 @@
         <div><label># Players <input type="number" value="9" id="playerCount" min="1" max="10"/><span id="playerCountInfo"></span></label></div>
 
         <div id="players">
-            <div>Player 1: Name: <input type="text" id="name1"/> Initial stack <input type="text" id="initialStack1"/></div>
-            <div>Player 2: Name: <input type="text" id="name2"/> Initial stack <input type="text" id="initialStack2"/></div>
-            <div>Player 3: Name: <input type="text" id="name3"/> Initial stack <input type="text" id="initialStack3"/></div>
-            <div>Player 4: Name: <input type="text" id="name4"/> Initial stack <input type="text" id="initialStack4"/></div>
-            <div>Player 5: Name: <input type="text" id="name5"/> Initial stack <input type="text" id="initialStack5"/></div>
+            <div>Player 1: Name: <input type="text" id="name1" value="josue1"/> Initial stack <input type="text" id="initialStack1" value="1000"/></div>
+            <div>Player 2: Name: <input type="text" id="name2" value="josue2"/> Initial stack <input type="text" id="initialStack2" value="1000"/></div>
+            <div>Player 3: Name: <input type="text" id="name3" value="josue3"/> Initial stack <input type="text" id="initialStack3" value="1000"/></div>
+            <div>Player 4: Name: <input type="text" id="name4" value="josue4"/> Initial stack <input type="text" id="initialStack4" value="1000"/></div>
+            <div>Player 5: Name: <input type="text" id="name5" value="josue5"/> Initial stack <input type="text" id="initialStack5" value="1000"/></div>
             <div>Player 6: Name: <input type="text" id="name6"/> Initial stack <input type="text" id="initialStack6"/></div>
             <div>Player 7: Name: <input type="text" id="name7"/> Initial stack <input type="text" id="initialStack7"/></div>
             <div>Player 8: Name: <input type="text" id="name8"/> Initial stack <input type="text" id="initialStack8"/></div>
@@ -31,60 +31,73 @@
 
         <button type="button" id="sit">Sit!</button>
 
+        <div id="showDealerContainer" class="no-display">
+            <span id="showDealer">Dealer</span>
+        </div>
+
         <div id="table" class="no-display">
             <div id="player1" class="player">
                 <div id="name1Info" class="playerName"></div>
                 <div id="initialStack1Info" stack="playerStack"></div>
                 <img id="card11" class="card">
                 <img id="card12" class="card">
+                <div id="bet1"></div>
             </div>
             <div id="player2" class="player">
                 <div id="name2Info" class="playerName"></div>
                 <div id="initialStack2Info" stack="playerStack"></div>
                 <img id="card21" class="card">
                 <img id="card22" class="card">
+                <div id="bet2"></div>
             </div>
             <div id="player3" class="player">
                 <div id="name3Info" class="playerName"></div>
                 <div id="initialStack3Info" stack="playerStack"></div>
                 <img id="card31" class="card">
                 <img id="card32" class="card">
+                <div id="bet3"></div>
             </div>
             <div id="player4" class="player">
                 <div id="name4Info" class="playerName"></div>
                 <div id="initialStack4Info" stack="playerStack"></div>
                 <img id="card41" class="card">
                 <img id="card42" class="card">
+                <div id="bet4"></div>
             </div>
             <div id="player5" class="player">
                 <div id="name5Info" class="playerName"></div>
                 <div id="initialStack5Info" stack="playerStack"></div>
                 <img id="card52" class="card">
                 <img id="card51" class="card">
+                <div id="bet5"></div>
             </div>
             <div id="player6" class="player">
                 <div id="name6Info" class="playerName"></div>
                 <div id="initialStack6Info" stack="playerStack"></div>
                 <img id="card61" class="card">
                 <img id="card62" class="card">
+                <div id="bet6"></div>
             </div>
             <div id="player7" class="player">
                 <div id="name7Info" class="playerName"></div>
                 <div id="initialStack7Info" stack="playerStack"></div>
                 <img id="card71" class="card">
                 <img id="card72" class="card">
+                <div id="bet7"></div>
             </div>
             <div id="player8" class="player">
                 <div id="name8Info" class="playerName"></div>
                 <div id="initialStack8Info" stack="playerStack"></div>
                 <img id="card81" class="card">
                 <img id="card82" class="card">
+                <div id="bet8"></div>
             </div>
             <div id="player9" class="player">
                 <div id="name9Info" class="playerName"></div>
                 <div id="initialStack9Info" stack="playerStack"></div>
                 <img id="card91" class="card">
                 <img id="card92" class="card">
+                <div id="bet9"></div>
             </div>
         </div>
 

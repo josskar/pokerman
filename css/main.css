@@ -5,6 +5,7 @@
 .player{
     width: 100px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .display-block{
@@ -35,4 +36,18 @@ form label {
 
 form label input {
   float: right;
+}
+
+
+#showDealerContainer{
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+
+}
+
+#showDealer{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
