@@ -1,6 +1,7 @@
 var cards = [];
 var bigBlind = 0;
 var smallBlind = 0;
+var playerFocus = null;
 
 //step1 = preflop, step2 = flop, step3 = turn, step4 = river;
 var step = 0;
@@ -10,7 +11,7 @@ var activePlayers = [];
 function startHand(players, dealer){
     //$.each( players, function(){});
     var numDealer = parseFloat(dealer);
-    var playerFocus = '';
+
     if(step == '1'){
         //var indexDealer = players.indexOf(dealer);
         if(numDealer == players.length - 1){
@@ -42,16 +43,47 @@ function startHand(players, dealer){
         if(numDealer == players.length - 2){
             playerFocus = 1;
         }
-        
-        $('#btnActions').css('left',(105*(playerFocus-1))+'px')
-        $('div').removeClass("focus");
-        $('#player'+(playerFocus)).addClass("focus");
+
+        getFocusPlayer(null);
 
     }else{
         console.log('b');
     }
 }
 
+function endHand(){
+    //sum all bets
+}
+
+function checkIfLastPlayer(){
+    var playersOnHand = 0
+    for(var i = 0 ; i < activePlayers.length ; i++){
+        if(activePlayers[i]!=null){
+            playersOnHand++;
+        }
+    }
+    if(playersOnHand==0){
+        endHand();
+        console.log('end');
+        return true;
+    }
+    console.log(playersOnHand);
+    return false;
+}
+
+function getFocusPlayer(nextPlayer){
+    if(nextPlayer!=null){
+        if(playerFocus==activePlayers.length){
+            playerFocus = 1;
+        }else{
+            playerFocus += nextPlayer;
+        }
+    }
+
+    $('#btnActions').css('left',(105*(playerFocus-1))+'px')
+    $('div').removeClass("focus");
+    $('#player'+(playerFocus)).addClass("focus");
+}
 
 function initCards(){
     // D = Diamonds, H = Hearts, C = Clovers, S = Spades
@@ -188,11 +220,21 @@ $( document ).ready(function() {
 
     $('#start').on("click", function(){
         step = 1;
-        var activePlayers = players;
+        activePlayers = players;
         startHand(activePlayers, playerDealer);
         $('#showDealerContainer').removeClass('no-display');
         $('#start').addClass("no-display");
         $('#btnActionsContainer').removeClass("no-display");
+    });
+
+    $('#fold').on("click", function(){
+        activePlayers[playerFocus-1] = null;
+        if(!checkIfLastPlayer()){
+            $('#card'+(playerFocus)+'1').attr('src', "images/reverse.png");
+            $('#card'+(playerFocus)+'2').attr('src', "images/reverse.png");
+            console.log(activePlayers);
+            getFocusPlayer(1);
+        }
     });
 
     $('#playerCount').on('change', onPlayerCountChange);
