@@ -1,10 +1,9 @@
-var Deck = function(table) {
+var Deck = function() {
     if (this instanceof Deck) {
-        this.table = table;
         this.cards = initCards();
         console.log('Deck instantiated');
     } else {
-        return new Deck(table);
+        return new Deck();
     }
 }
 
@@ -16,3 +15,9 @@ Deck.prototype.initCards = function() {
         '1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s', '13s']
     return cards;
 }
+
+/*
+Deck.prototype.dealCards = function(players) {
+
+}
+*/

@@ -2,7 +2,7 @@ var Table = function(name, number, numberOfPlayers) {
     if (this instanceof Table) {
         this.name = number;
         this.number = number;
-        this.numberOfPlayers = numberPlayers;
+        this.numberOfPlayers = numberOfPlayers;
         this.numberHand = 1;
         console.log('Table instantiated');
     } else {

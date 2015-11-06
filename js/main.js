@@ -1,3 +1,22 @@
+function include(filename)
+{
+    var head = document.getElementsByTagName('head')[0];
+
+    var script = document.createElement('script');
+    script.src = filename;
+    script.type = 'text/javascript';
+
+    head.appendChild(script)
+}
+
+include("/js/class/deck.js");
+include("/js/class/game.js");
+include("/js/class/hand.js");
+include("/js/class/player.js");
+include("/js/class/round.js");
+include("/js/class/table.js");
+include("/js/class/turn.js");
+
 var cards = [];
 var bigBlind = 0;
 var smallBlind = 0;
@@ -141,13 +160,21 @@ function onPlayerCountChange(e) {
 $( document ).ready(function() {
     var playerDealer, gameType, gameMode, roomName, timeOutHand;
     var players = [];
-
-    initCards();
+    var playerNumber = 0;
+    var name = null;
+    var seat = null;
+    var stack = null;
+    var table = null;
 
     $('#sit').on("click", function(){
         smallBlind = $('#smallBlind').val();
         bigBlind = $('#bigBlind').val();
         playerDealer = $('#playerDealer').val();
+
+        var deck1 = new Deck();
+        var table1 = new Table("Main", "1", "0");
+
+        deck1.initCards();
 
         $('#table').removeClass("no-display");
         $('#players').addClass("no-display");
@@ -166,74 +193,33 @@ $( document ).ready(function() {
         $('#timeOutHand').addClass('no-display');
         $('#playerCount').addClass('no-display');
 
+        for(var i = 1; i <= 10 ; i++){
+            if($('#name'+i).val()!='' && $('#initialStack'+i).val()!=''){
+                name = $('#name'+i).val();
+                seat = i;
+                stack = $('#initialStack'+i).val()
+                table = table1.name;
+                var player = new Player(name, seat, stack, table)
+                players.push(player);
+            }
+        }
+
+        console.log(players);
+        /*
+
         if($('#name1').val()!='' && $('#initialStack1').val()!=''){
             $('#name1Info').text($('#name1').val());
             $('#initialStack1Info').text($('#initialStack1').val());
             $('#card11').attr('src', "images/" + getMeCard(cards) + ".png");
             $('#card12').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name1').val());
-        }
-        if($('#name2').val()!='' && $('#initialStack2').val()!=''){
-            $('#name2Info').text($('#name2').val());
-            $('#initialStack2Info').text($('#initialStack2').val());
-            $('#card21').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card22').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name2').val());
-        }
-        if($('#name3').val()!='' && $('#initialStack3').val()!=''){
-            $('#name3Info').text($('#name3').val());
-            $('#initialStack3Info').text($('#initialStack3').val());
-            $('#card31').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card32').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name3').val());
-        }
-        if($('#name4').val()!='' && $('#initialStack4').val()!=''){
-            $('#name4Info').text($('#name4').val());
-            $('#initialStack4Info').text($('#initialStack4').val());
-            $('#card41').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card42').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name4').val());
-        }
-        if($('#name5').val()!='' && $('#initialStack5').val()!=''){
-            $('#name5Info').text($('#name5').val());
-            $('#initialStack5Info').text($('#initialStack5').val());
-            $('#card51').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card52').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name5').val());
-        }
-        if($('#name6').val()!='' && $('#initialStack6').val()!=''){
-            $('#name6Info').text($('#name6').val());
-            $('#initialStack6Info').text($('#initialStack6').val());
-            $('#card61').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card62').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name6').val());
-        }
-        if($('#name7').val()!='' && $('#initialStack7').val()!=''){
-            $('#name7Info').text($('#name7').val());
-            $('#initialStack7Info').text($('#initialStack7').val());
-            $('#card71').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card72').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name7').val());
-        }
-        if($('#name8').val()!='' && $('#initialStack8').val()!=''){
-            $('#name8Info').text($('#name8').val());
-            $('#initialStack8Info').text($('#initialStack8').val());
-            $('#card81').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card82').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name8').val());
-        }
-        if($('#name9').val()!='' && $('#initialStack9').val()!=''){
-            $('#name9Info').text($('#name9').val());
-            $('#initialStack9Info').text($('#initialStack9').val());
-            $('#card91').attr('src', "images/" + getMeCard(cards) + ".png");
-            $('#card92').attr('src', "images/" + getMeCard(cards) + ".png");
-            players.push($('#name9').val());
+            players.push(player1);
         }
 
         $('#start').removeClass("no-display");
         $('#sit').addClass("no-display");
 
         console.log(cards);
+        */
     });
 
     $('#start').on("click", function(){
