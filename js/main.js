@@ -10,6 +10,7 @@ var activePlayers = [];
 function startHand(players, dealer){
     //$.each( players, function(){});
     var numDealer = parseFloat(dealer);
+    var playerFocus = '';
     if(step == '1'){
         //var indexDealer = players.indexOf(dealer);
         if(numDealer == players.length - 1){
@@ -18,6 +19,7 @@ function startHand(players, dealer){
             $('#bet'+players.length).text(smallBlind);
             $('#bet1').text(bigBlind);
             $('#showDealer').css('left',(105*(dealer-1))+'px')
+            playerFocus = 2;
             console.log('1');
         } else if(numDealer == players.length){
             $('#initialStack1Info').text($('#initialStack1Info').text()-smallBlind);
@@ -25,6 +27,7 @@ function startHand(players, dealer){
             $('#bet1').text(smallBlind);
             $('#bet2').text(bigBlind);
             $('#showDealer').css('left',(105*(numDealer-1))+'px')
+            playerFocus = 3;
             console.log('2');
         } else{
             $('#initialStack'+(numDealer + 1)+'Info').text($('#initialStack'+(numDealer + 1)+'Info').text()-smallBlind);
@@ -32,8 +35,17 @@ function startHand(players, dealer){
             $('#bet'+(numDealer + 1)).text(smallBlind);
             $('#bet'+(numDealer + 2)).text(bigBlind);
             $('#showDealer').css('left',(105*(numDealer-1))+'px')
+            playerFocus = numDealer + 3;
             console.log('3');
         }
+
+        if(numDealer == players.length - 2){
+            playerFocus = 1;
+        }
+        
+        $('#btnActions').css('left',(105*(playerFocus-1))+'px')
+        $('div').removeClass("focus");
+        $('#player'+(playerFocus)).addClass("focus");
 
     }else{
         console.log('b');
@@ -179,6 +191,8 @@ $( document ).ready(function() {
         var activePlayers = players;
         startHand(activePlayers, playerDealer);
         $('#showDealerContainer').removeClass('no-display');
+        $('#start').addClass("no-display");
+        $('#btnActionsContainer').removeClass("no-display");
     });
 
     $('#playerCount').on('change', onPlayerCountChange);

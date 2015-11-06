@@ -51,3 +51,21 @@ form label input {
     top: 0;
     left: 0;
 }
+
+#btnActionsContainer{
+    position: relative;
+}
+
+#btnActions{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#raise{
+    width: 90%;
+}
+
+.focus{
+    border: 2px solid red;
+}
