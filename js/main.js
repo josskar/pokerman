@@ -21,7 +21,6 @@ function startHand(players, dealer){
             $('#bet1').text(bigBlind);
             $('#showDealer').css('left',(105*(dealer-1))+'px')
             playerFocus = 2;
-            console.log('1');
         } else if(numDealer == players.length){
             $('#initialStack1Info').text($('#initialStack1Info').text()-smallBlind);
             $('#initialStack2Info').text($('#initialStack2Info').text()-bigBlind);
@@ -29,7 +28,6 @@ function startHand(players, dealer){
             $('#bet2').text(bigBlind);
             $('#showDealer').css('left',(105*(numDealer-1))+'px')
             playerFocus = 3;
-            console.log('2');
         } else{
             $('#initialStack'+(numDealer + 1)+'Info').text($('#initialStack'+(numDealer + 1)+'Info').text()-smallBlind);
             $('#initialStack'+(numDealer + 2)+'Info').text($('#initialStack'+(numDealer + 2)+'Info').text()-bigBlind);
@@ -37,7 +35,6 @@ function startHand(players, dealer){
             $('#bet'+(numDealer + 2)).text(bigBlind);
             $('#showDealer').css('left',(105*(numDealer-1))+'px')
             playerFocus = numDealer + 3;
-            console.log('3');
         }
 
         if(numDealer == players.length - 2){
@@ -53,6 +50,29 @@ function startHand(players, dealer){
 
 function endHand(){
     //sum all bets
+    var pot = 0;
+    for(var i = 1 ; i < 10 ; i++){
+        if($('#bet'+i).text()!=''){
+            pot +=  parseFloat($('#bet'+i).text());
+            $('#bet'+i).text('');
+        }
+    }
+
+    var winnerPlayer = getWinnerPlayer() + 1;
+    console.log(winnerPlayer);
+    $('#initialStack'+ winnerPlayer +'Info').text(parseFloat($('#initialStack'+ winnerPlayer +'Info').text())+parseFloat(pot));
+
+    $('#btnActions').addClass('no-display')
+    $('div').removeClass("focus");
+    $('#player'+(winnerPlayer)).addClass("winner");
+}
+
+function getWinnerPlayer(){
+    for(var i = 0 ; i < activePlayers.length ; i++){
+        if(activePlayers[i]!=null){
+            return i;
+        }
+    }
 }
 
 function checkIfLastPlayer(){
@@ -62,12 +82,10 @@ function checkIfLastPlayer(){
             playersOnHand++;
         }
     }
-    if(playersOnHand==0){
+    if(playersOnHand==1){
         endHand();
-        console.log('end');
         return true;
     }
-    console.log(playersOnHand);
     return false;
 }
 
@@ -229,12 +247,10 @@ $( document ).ready(function() {
 
     $('#fold').on("click", function(){
         activePlayers[playerFocus-1] = null;
-        if(!checkIfLastPlayer()){
-            $('#card'+(playerFocus)+'1').attr('src', "images/reverse.png");
-            $('#card'+(playerFocus)+'2').attr('src', "images/reverse.png");
-            console.log(activePlayers);
-            getFocusPlayer(1);
-        }
+        $('#card'+(playerFocus)+'1').attr('src', "images/reverse.png");
+        $('#card'+(playerFocus)+'2').attr('src', "images/reverse.png");
+        getFocusPlayer(1);
+        checkIfLastPlayer();
     });
 
     $('#playerCount').on('change', onPlayerCountChange);
