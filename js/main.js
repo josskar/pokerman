@@ -9,28 +9,29 @@ var activePlayers = [];
 
 function startHand(players, dealer){
     //$.each( players, function(){});
+    var numDealer = parseFloat(dealer);
     if(step == '1'){
-        var indexDealer = players.indexOf(dealer);
-        if(indexDealer == players.length - 1){
+        //var indexDealer = players.indexOf(dealer);
+        if(numDealer == players.length - 1){
+            $('#initialStack'+players.length+'Info').text($('#initialStack'+players.length+'Info').text()-smallBlind);
+            $('#initialStack1Info').text($('#initialStack1Info').text()-bigBlind);
+            $('#bet'+players.length).text(smallBlind);
+            $('#bet1').text(bigBlind);
+            $('#showDealer').css('left',(105*(dealer-1))+'px')
+            console.log('1');
+        } else if(numDealer == players.length){
             $('#initialStack1Info').text($('#initialStack1Info').text()-smallBlind);
             $('#initialStack2Info').text($('#initialStack2Info').text()-bigBlind);
             $('#bet1').text(smallBlind);
             $('#bet2').text(bigBlind);
-            $('#showDealer').css('left',(100*indexDealer)+'px')
-            console.log('1');
-        } else if(indexDealer == players.length - 2){
-            $('#initialStack'+players.length+'Info').text($('#initialStack'+players.length+'Info').text()-smallBlind);
-            $('#initialStack1Info').text($('#initialStack1Info').text()-bigBlind);
-            $('#bet'+players.length ).text(smallBlind);
-            $('#bet1').text(bigBlind);
-            $('#showDealer').css('left',(100*indexDealer)+'px')
+            $('#showDealer').css('left',(105*(numDealer-1))+'px')
             console.log('2');
         } else{
-            $('#initialStack'+(indexDealer + 2)+'Info').text($('#initialStack'+(indexDealer + 2)+'Info').text()-smallBlind);
-            $('#initialStack'+(indexDealer + 3)+'Info').text($('#initialStack'+(indexDealer + 3)+'Info').text()-bigBlind);
-            $('#bet'+(indexDealer + 2)).text(smallBlind);
-            $('#bet'+(indexDealer + 3)).text(bigBlind);
-            $('#showDealer').css('left',(100*indexDealer)+'px')
+            $('#initialStack'+(numDealer + 1)+'Info').text($('#initialStack'+(numDealer + 1)+'Info').text()-smallBlind);
+            $('#initialStack'+(numDealer + 2)+'Info').text($('#initialStack'+(numDealer + 2)+'Info').text()-bigBlind);
+            $('#bet'+(numDealer + 1)).text(smallBlind);
+            $('#bet'+(numDealer + 2)).text(bigBlind);
+            $('#showDealer').css('left',(105*(numDealer-1))+'px')
             console.log('3');
         }
 
@@ -49,7 +50,7 @@ function initCards(){
 }
 
 function getMeCard(){
-    var number_card = Math.floor((Math.random() * cards.length) + 1);
+    var number_card = Math.floor(Math.random() * cards.length);
     var card = cards[number_card];
     deleteCard(card, cards);
     return card;
@@ -76,7 +77,7 @@ function onPlayerCountChange(e) {
 }
 
 $( document ).ready(function() {
-    var bigBlind, smallBlind, playerDealer, gameType, gameMode, roomName, timeOutHand;
+    var playerDealer, gameType, gameMode, roomName, timeOutHand;
     var players = [];
 
     initCards();
