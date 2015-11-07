@@ -4,7 +4,7 @@ var Player = function(name, seat, stack, table) {
         this.seat = seat;
         this.stack = stack;
         this.table = table;
-        this.hand = null;
+        this.hand = [];
         console.log('Player instantiated');
     } else {
         return new Player(name, seat, stack, table);

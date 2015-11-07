@@ -171,10 +171,8 @@ $( document ).ready(function() {
         bigBlind = $('#bigBlind').val();
         playerDealer = $('#playerDealer').val();
 
-        var deck1 = new Deck();
+        var deck = new Deck();
         var table1 = new Table("Main", "1", "0");
-
-        deck1.initCards();
 
         $('#table').removeClass("no-display");
         $('#players').addClass("no-display");
@@ -193,6 +191,8 @@ $( document ).ready(function() {
         $('#timeOutHand').addClass('no-display');
         $('#playerCount').addClass('no-display');
 
+
+        //configuration for one table
         for(var i = 1; i <= 10 ; i++){
             if($('#name'+i).val()!='' && $('#initialStack'+i).val()!=''){
                 name = $('#name'+i).val();
@@ -204,7 +204,10 @@ $( document ).ready(function() {
             }
         }
 
+        deck.dealCards(players);
         console.log(players);
+        console.log(deck.cards);
+
         /*
 
         if($('#name1').val()!='' && $('#initialStack1').val()!=''){
