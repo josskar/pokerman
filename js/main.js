@@ -122,27 +122,6 @@ function getFocusPlayer(nextPlayer){
     $('#player'+(playerFocus)).addClass("focus");
 }
 
-function initCards(){
-    // D = Diamonds, H = Hearts, C = Clovers, S = Spades
-    cards = ['1d', '2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', '10d', '11d', '12d', '13d',
-        '1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', '11h', '12h', '13h',
-        '1c', '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', '11c', '12c', '13c',
-        '1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s', '13s']
-}
-
-function getMeCard(){
-    var number_card = Math.floor(Math.random() * cards.length);
-    var card = cards[number_card];
-    deleteCard(card, cards);
-    return card;
-}
-
-function deleteCard(card){
-    for (var i = cards.length - 1; i >= 0; i--) {
-        if (cards[i] == card) cards.splice(i, 1);
-    }
-}
-
 function onPlayerCountChange(e) {
     var playerCount = $('#playerCount').val()
         $players = $('#players'),
@@ -171,7 +150,6 @@ $( document ).ready(function() {
         bigBlind = $('#bigBlind').val();
         playerDealer = $('#playerDealer').val();
 
-        var deck = new Deck();
         var table1 = new Table("Main", "1", "0");
 
         $('#table').removeClass("no-display");
@@ -191,22 +169,32 @@ $( document ).ready(function() {
         $('#timeOutHand').addClass('no-display');
         $('#playerCount').addClass('no-display');
 
-
         //configuration for one table
         for(var i = 1; i <= 10 ; i++){
             if($('#name'+i).val()!='' && $('#initialStack'+i).val()!=''){
                 name = $('#name'+i).val();
-                seat = i;
                 stack = $('#initialStack'+i).val()
-                table = table1.name;
+                table = null;
                 var player = new Player(name, seat, stack, table)
                 players.push(player);
             }
         }
 
-        deck.dealCards(players);
-        console.log(players);
-        console.log(deck.cards);
+        var tournament = new Game(bigBlind, null, "Texas", smallBlind, "Holdem", "15")
+
+        tournament.addTable(table1);
+
+        //sit players on table 1
+        table1.sitPlayers(players);
+
+        //set the dealer;
+        //table1.setDealer();
+
+        //start hand
+        table1.dealCards(players);
+
+        //show table data
+        console.log(tournament);
 
         /*
 

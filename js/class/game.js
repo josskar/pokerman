@@ -5,7 +5,8 @@ var Game = function(bigBlind, mode, name, smallBlind, type, timePerPlayer) {
         this.name = name;
         this.smallBlind = smallBlind;
         this.timePerPlayer = timePerPlayer;
-        this.typeOfGame = typeOfGame;
+        this.typeOfGame = type;
+        this.tables = [];
         console.log('Game instantiated');
     } else {
         return new Game(bigBlind, mode, name, smallBlind, type, timePerPlayer);
@@ -53,4 +54,12 @@ Game.prototype.setSmallBlind = function(smallBlind){
 Game.prototype.setTimePerPlayer = function(timePerPlayer){
     this.timePerPlayer = timePerPlayer;
     console.log('The new time per player of this game is ' + this.timePerPlayer + '.');
+}
+
+//customs
+
+Game.prototype.addTable = function(table){
+    table.smallBlind = this.smallBlind;
+    table.bigBlind = this.bigBlind;
+    this.tables.push(table);
 }

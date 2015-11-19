@@ -11,17 +11,11 @@ var Deck = function() {
     }
 }
 
-/*
-Deck.prototype.dealCards = function(players) {
-
-}
-*/
-
 Deck.prototype.dealCards = function(players){
     var hand = new Hand();
-
     for(var i=0;i<players.length;i++){
         players[i].hand = hand.getMeCards(this);
+        players[i].inGame = true;
     }
 }
 

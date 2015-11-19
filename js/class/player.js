@@ -1,8 +1,12 @@
 var Player = function(name, seat, stack, table) {
     if (this instanceof Player) {
+        this.available = true;
+        this.inGame = false;
         this.name = name;
         this.seat = seat;
+        this.sit = false;
         this.stack = stack;
+        this.stackOnTable = 0;
         this.table = table;
         this.hand = [];
         console.log('Player instantiated');
